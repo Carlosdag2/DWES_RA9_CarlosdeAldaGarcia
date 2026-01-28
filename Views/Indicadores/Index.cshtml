@@ -1,0 +1,229 @@
+@model DWES_RA9_CarlosdeAldaGarcia.Models.IndicadoresIndexViewModel
+
+@{
+    ViewData["Title"] = "Indicadores de Digitalización y Sostenibilidad";
+}
+
+<div class="container-fluid">
+    <h1 class="mb-4">
+        <i class="bi bi-bar-chart-fill text-primary"></i>
+        Indicadores de Digitalización y Sostenibilidad
+    </h1>
+
+    <!-- Mensajes de notificación -->
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="bi bi-check-circle"></i> @TempData["Success"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="bi bi-exclamation-triangle"></i> @TempData["Error"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <!-- Botones de acción -->
+    <div class="row mb-4">
+        <div class="col">
+            <a asp-action="Create" class="btn btn-success">
+                <i class="bi bi-plus-circle"></i> Nuevo Indicador
+            </a>
+            <a asp-action="Resumen" class="btn btn-info">
+                <i class="bi bi-pie-chart"></i> Ver Resumen Estadístico
+            </a>
+        </div>
+    </div>
+
+    <!-- Panel de filtros -->
+    <div class="card mb-4">
+        <div class="card-header bg-light">
+            <h5 class="mb-0"><i class="bi bi-funnel"></i> Filtros</h5>
+        </div>
+        <div class="card-body">
+            <form method="get" asp-action="Index" class="row g-3">
+                <!-- Filtro por Tipo -->
+                <div class="col-md-3">
+                    <label for="filtroTipo" class="form-label">Filtrar por Tipo</label>
+                    <select name="filtroTipo" id="filtroTipo" class="form-select">
+                        <option value="">-- Todos los tipos --</option>
+                        @foreach (var tipo in Model.TiposDisponibles)
+                        {
+                            <option value="@tipo" selected="@(Model.FiltroTipo == tipo)">@tipo</option>
+                        }
+                    </select>
+                </div>
+
+                <!-- Filtro por Categoría -->
+                <div class="col-md-3">
+                    <label for="filtroCategoria" class="form-label">Filtrar por Categoría</label>
+                    <select name="filtroCategoria" id="filtroCategoria" class="form-select">
+                        <option value="">-- Todas las categorías --</option>
+                        @foreach (var categoria in Model.CategoriasDisponibles)
+                        {
+                            <option value="@categoria" selected="@(Model.FiltroCategoria == categoria)">@categoria</option>
+                        }
+                    </select>
+                </div>
+
+                <!-- Filtro por Ámbito -->
+                <div class="col-md-3">
+                    <label for="filtroAmbito" class="form-label">Filtrar por Ámbito</label>
+                    <select name="filtroAmbito" id="filtroAmbito" class="form-select">
+                        <option value="">-- Todos los ámbitos --</option>
+                        @foreach (var ambito in Model.AmbitosDisponibles)
+                        {
+                            <option value="@ambito" selected="@(Model.FiltroAmbito == ambito)">@ambito</option>
+                        }
+                    </select>
+                </div>
+
+                <!-- Botones de filtro -->
+                <div class="col-md-3 d-flex align-items-end">
+                    <button type="submit" class="btn btn-primary me-2">
+                        <i class="bi bi-search"></i> Filtrar
+                    </button>
+                    <a asp-action="Index" class="btn btn-outline-secondary">
+                        <i class="bi bi-x-circle"></i> Limpiar
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Filtro activo -->
+    @if (!string.IsNullOrEmpty(Model.FiltroTipo) || !string.IsNullOrEmpty(Model.FiltroCategoria) || !string.IsNullOrEmpty(Model.FiltroAmbito))
+    {
+        <div class="alert alert-info">
+            <i class="bi bi-filter"></i>
+            <strong>Filtro activo:</strong>
+            @if (!string.IsNullOrEmpty(Model.FiltroTipo))
+            {
+                <span class="badge bg-primary">Tipo: @Model.FiltroTipo</span>
+            }
+            @if (!string.IsNullOrEmpty(Model.FiltroCategoria))
+            {
+                <span class="badge bg-success">Categoría: @Model.FiltroCategoria</span>
+            }
+            @if (!string.IsNullOrEmpty(Model.FiltroAmbito))
+            {
+                <span class="badge bg-warning text-dark">Ámbito: @Model.FiltroAmbito</span>
+            }
+            <span class="ms-2">(@Model.Indicadores.Count resultados)</span>
+        </div>
+    }
+
+    <!-- Tabla de indicadores -->
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">
+                <i class="bi bi-table"></i> Listado de Indicadores
+                <span class="badge bg-light text-primary">@Model.Indicadores.Count</span>
+            </h5>
+        </div>
+        <div class="card-body p-0">
+            @if (Model.Indicadores.Any())
+            {
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover mb-0">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>ID</th>
+                                <th>Tipo</th>
+                                <th>Categoría</th>
+                                <th>Nombre</th>
+                                <th>Valor</th>
+                                <th>Unidad</th>
+                                <th>Fecha</th>
+                                <th>Ámbito</th>
+                                <th class="text-center">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var indicador in Model.Indicadores)
+                            {
+                                <tr>
+                                    <td><strong>@indicador.Id</strong></td>
+                                    <td>
+                                        @if (indicador.Tipo == "Sostenibilidad")
+                                        {
+                                            <span class="badge bg-success">@indicador.Tipo</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-primary">@indicador.Tipo</span>
+                                        }
+                                    </td>
+                                    <td>@indicador.Categoria</td>
+                                    <td>@indicador.Nombre</td>
+                                    <td><strong>@indicador.Valor</strong></td>
+                                    <td>@(indicador.Unidad ?? "-")</td>
+                                    <td>@indicador.Fecha.ToString("dd/MM/yyyy")</td>
+                                    <td>
+                                        <span class="badge bg-secondary">@indicador.Ambito</span>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="btn-group btn-group-sm" role="group">
+                                            <a asp-action="Details" asp-route-id="@indicador.Id" 
+                                               class="btn btn-outline-info" title="Ver detalles">
+                                                <i class="bi bi-eye"></i>
+                                            </a>
+                                            <a asp-action="Edit" asp-route-id="@indicador.Id" 
+                                               class="btn btn-outline-warning" title="Editar">
+                                                <i class="bi bi-pencil"></i>
+                                            </a>
+                                            <a asp-action="Delete" asp-route-id="@indicador.Id" 
+                                               class="btn btn-outline-danger" title="Eliminar">
+                                                <i class="bi bi-trash"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+                <div class="text-center p-5">
+                    <i class="bi bi-inbox text-muted" style="font-size: 4rem;"></i>
+                    <h4 class="text-muted mt-3">No se encontraron indicadores</h4>
+                    <p class="text-muted">No hay indicadores que coincidan con los criterios de búsqueda.</p>
+                    <a asp-action="Create" class="btn btn-primary mt-2">
+                        <i class="bi bi-plus-circle"></i> Crear primer indicador
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Limpiar otros filtros cuando se selecciona uno
+        document.getElementById('filtroTipo').addEventListener('change', function() {
+            if (this.value) {
+                document.getElementById('filtroCategoria').value = '';
+                document.getElementById('filtroAmbito').value = '';
+            }
+        });
+        
+        document.getElementById('filtroCategoria').addEventListener('change', function() {
+            if (this.value) {
+                document.getElementById('filtroTipo').value = '';
+                document.getElementById('filtroAmbito').value = '';
+            }
+        });
+        
+        document.getElementById('filtroAmbito').addEventListener('change', function() {
+            if (this.value) {
+                document.getElementById('filtroTipo').value = '';
+                document.getElementById('filtroCategoria').value = '';
+            }
+        });
+    </script>
+}

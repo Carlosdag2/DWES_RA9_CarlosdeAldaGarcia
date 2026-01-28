@@ -1,0 +1,168 @@
+@model DWES_RA9_CarlosdeAldaGarcia.Models.ResumenViewModel
+
+@{
+    ViewData["Title"] = "Resumen Estadístico";
+}
+
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-action="Index">Indicadores</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Resumen Estadístico</li>
+        </ol>
+    </nav>
+
+    <h1 class="mb-4">
+        <i class="bi bi-pie-chart-fill text-info"></i>
+        Resumen Estadístico de Indicadores
+    </h1>
+
+    <!-- Mensajes de error -->
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="bi bi-exclamation-triangle"></i> @TempData["Error"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <div class="row">
+        <!-- Resumen por Tipo -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">
+                        <i class="bi bi-tags"></i> Por Tipo
+                    </h5>
+                </div>
+                <div class="card-body">
+                    @if (Model.TotalPorTipo.Any())
+                    {
+                        <ul class="list-group list-group-flush">
+                            @foreach (var item in Model.TotalPorTipo)
+                            {
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    @if (item.Key == "Sostenibilidad")
+                                    {
+                                        <span class="badge bg-success">@item.Key</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-primary">@item.Key</span>
+                                    }
+                                    <span class="badge bg-dark rounded-pill">@item.Value</span>
+                                </li>
+                            }
+                        </ul>
+                        <hr />
+                        <div class="text-center">
+                            <strong>Total:</strong> 
+                            <span class="badge bg-secondary fs-6">@Model.TotalPorTipo.Values.Sum()</span>
+                        </div>
+                    }
+                    else
+                    {
+                        <p class="text-muted text-center">No hay datos disponibles</p>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <!-- Resumen por Categoría -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0">
+                        <i class="bi bi-folder"></i> Por Categoría
+                    </h5>
+                </div>
+                <div class="card-body">
+                    @if (Model.TotalPorCategoria.Any())
+                    {
+                        <ul class="list-group list-group-flush">
+                            @foreach (var item in Model.TotalPorCategoria.OrderByDescending(x => x.Value))
+                            {
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span>@item.Key</span>
+                                    <span class="badge bg-success rounded-pill">@item.Value</span>
+                                </li>
+                            }
+                        </ul>
+                        <hr />
+                        <div class="text-center">
+                            <strong>Categorías:</strong> 
+                            <span class="badge bg-secondary fs-6">@Model.TotalPorCategoria.Count</span>
+                        </div>
+                    }
+                    else
+                    {
+                        <p class="text-muted text-center">No hay datos disponibles</p>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <!-- Resumen por Ámbito -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-header bg-warning">
+                    <h5 class="mb-0">
+                        <i class="bi bi-geo-alt"></i> Por Ámbito
+                    </h5>
+                </div>
+                <div class="card-body">
+                    @if (Model.TotalPorAmbito.Any())
+                    {
+                        <ul class="list-group list-group-flush">
+                            @foreach (var item in Model.TotalPorAmbito.OrderByDescending(x => x.Value))
+                            {
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span>@item.Key</span>
+                                    <span class="badge bg-warning text-dark rounded-pill">@item.Value</span>
+                                </li>
+                            }
+                        </ul>
+                        <hr />
+                        <div class="text-center">
+                            <strong>Ámbitos:</strong> 
+                            <span class="badge bg-secondary fs-6">@Model.TotalPorAmbito.Count</span>
+                        </div>
+                    }
+                    else
+                    {
+                        <p class="text-muted text-center">No hay datos disponibles</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Resumen total -->
+    @if (Model.TotalPorTipo.Any())
+    {
+        <div class="card shadow-sm mt-4">
+            <div class="card-body bg-light">
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <h2 class="text-primary">@Model.TotalPorTipo.Values.Sum()</h2>
+                        <p class="text-muted mb-0">Total de Indicadores</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h2 class="text-success">@Model.TotalPorCategoria.Count</h2>
+                        <p class="text-muted mb-0">Categorías Diferentes</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h2 class="text-warning">@Model.TotalPorAmbito.Count</h2>
+                        <p class="text-muted mb-0">Ámbitos Diferentes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+    <div class="mt-4">
+        <a asp-action="Index" class="btn btn-outline-secondary">
+            <i class="bi bi-arrow-left"></i> Volver al listado
+        </a>
+    </div>
+</div>

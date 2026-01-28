@@ -1,0 +1,80 @@
+@model DWES_RA9_CarlosdeAldaGarcia.Models.IndicadorViewModel
+
+@{
+    ViewData["Title"] = "Eliminar Indicador";
+}
+
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-action="Index">Indicadores</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Eliminar #@Model.Id</li>
+        </ol>
+    </nav>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow border-danger">
+                <div class="card-header bg-danger text-white">
+                    <h4 class="mb-0">
+                        <i class="bi bi-exclamation-triangle"></i> Confirmar Eliminación
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-warning">
+                        <i class="bi bi-exclamation-circle"></i>
+                        <strong>¿Está seguro de que desea eliminar este indicador?</strong>
+                        <p class="mb-0 mt-2">Esta acción no se puede deshacer.</p>
+                    </div>
+
+                    <div class="card bg-light mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">@Model.Nombre</h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p class="mb-1"><strong>ID:</strong> @Model.Id</p>
+                                    <p class="mb-1"><strong>Tipo:</strong> 
+                                        @if (Model.Tipo == "Sostenibilidad")
+                                        {
+                                            <span class="badge bg-success">@Model.Tipo</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-primary">@Model.Tipo</span>
+                                        }
+                                    </p>
+                                    <p class="mb-1"><strong>Categoría:</strong> @Model.Categoria</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="mb-1"><strong>Valor:</strong> @Model.Valor @Model.Unidad</p>
+                                    <p class="mb-1"><strong>Fecha:</strong> @Model.Fecha.ToString("dd/MM/yyyy")</p>
+                                    <p class="mb-1"><strong>Ámbito:</strong> 
+                                        <span class="badge bg-secondary">@Model.Ambito</span>
+                                    </p>
+                                </div>
+                            </div>
+                            @if (!string.IsNullOrEmpty(Model.Descripcion))
+                            {
+                                <p class="mb-0 mt-2"><strong>Descripción:</strong> @Model.Descripcion</p>
+                            }
+                        </div>
+                    </div>
+
+                    <form asp-action="Delete" method="post">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" asp-for="Id" />
+                        
+                        <div class="d-flex justify-content-between">
+                            <a asp-action="Index" class="btn btn-outline-secondary">
+                                <i class="bi bi-arrow-left"></i> Cancelar
+                            </a>
+                            <button type="submit" class="btn btn-danger">
+                                <i class="bi bi-trash"></i> Sí, Eliminar Indicador
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

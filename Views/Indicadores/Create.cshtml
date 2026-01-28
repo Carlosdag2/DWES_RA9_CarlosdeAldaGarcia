@@ -1,0 +1,102 @@
+@model DWES_RA9_CarlosdeAldaGarcia.Models.IndicadorViewModel
+
+@{
+    ViewData["Title"] = "Crear Indicador";
+}
+
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-action="Index">Indicadores</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Crear</li>
+        </ol>
+    </nav>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-success text-white">
+                    <h4 class="mb-0">
+                        <i class="bi bi-plus-circle"></i> Crear Nuevo Indicador
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Create" method="post">
+                        @Html.AntiForgeryToken()
+                        
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label asp-for="Tipo" class="form-label"></label>
+                                <select asp-for="Tipo" class="form-select">
+                                    <option value="">-- Seleccione un tipo --</option>
+                                    <option value="Sostenibilidad">Sostenibilidad</option>
+                                    <option value="Digitalización">Digitalización</option>
+                                </select>
+                                <span asp-validation-for="Tipo" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label asp-for="Categoria" class="form-label"></label>
+                                <input asp-for="Categoria" class="form-control" placeholder="Ej: Medioambiente, Energía..." />
+                                <span asp-validation-for="Categoria" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Nombre" class="form-label"></label>
+                            <input asp-for="Nombre" class="form-control" placeholder="Nombre descriptivo del indicador" />
+                            <span asp-validation-for="Nombre" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Descripcion" class="form-label"></label>
+                            <textarea asp-for="Descripcion" class="form-control" rows="3" 
+                                      placeholder="Descripción detallada del indicador (opcional)"></textarea>
+                            <span asp-validation-for="Descripcion" class="text-danger"></span>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-4">
+                                <label asp-for="Valor" class="form-label"></label>
+                                <input asp-for="Valor" class="form-control" placeholder="Ej: 150.5" />
+                                <span asp-validation-for="Valor" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-4">
+                                <label asp-for="Unidad" class="form-label"></label>
+                                <input asp-for="Unidad" class="form-control" placeholder="Ej: %, toneladas, kWh" />
+                                <span asp-validation-for="Unidad" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-4">
+                                <label asp-for="Fecha" class="form-label"></label>
+                                <input asp-for="Fecha" type="date" class="form-control" />
+                                <span asp-validation-for="Fecha" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label asp-for="Ambito" class="form-label"></label>
+                            <input asp-for="Ambito" class="form-control" placeholder="Ej: Nacional, Regional, Local, Corporativo..." />
+                            <span asp-validation-for="Ambito" class="text-danger"></span>
+                        </div>
+
+                        <hr />
+
+                        <div class="d-flex justify-content-between">
+                            <a asp-action="Index" class="btn btn-outline-secondary">
+                                <i class="bi bi-arrow-left"></i> Cancelar
+                            </a>
+                            <button type="submit" class="btn btn-success">
+                                <i class="bi bi-check-circle"></i> Crear Indicador
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

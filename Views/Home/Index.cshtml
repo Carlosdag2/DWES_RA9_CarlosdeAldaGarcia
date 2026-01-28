@@ -1,0 +1,273 @@
+@{
+    ViewData["Title"] = "Inicio";
+}
+
+<!-- Hero Section -->
+<section class="bg-success bg-gradient text-white py-5 rounded-3 mb-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold mb-3">
+                    <i class="bi bi-leaf"></i> EcoData Solutions S.L.
+                </h1>
+                <p class="lead mb-4">
+                    Plataforma de gestión de indicadores de <strong>Digitalización</strong> y 
+                    <strong>Sostenibilidad</strong> para impulsar la toma de decisiones responsables.
+                </p>
+                <div class="d-flex gap-3 flex-wrap">
+                    <a asp-controller="Indicadores" asp-action="Index" class="btn btn-light btn-lg">
+                        <i class="bi bi-table"></i> Ver Indicadores
+                    </a>
+                    <a asp-controller="Indicadores" asp-action="Create" class="btn btn-outline-light btn-lg">
+                        <i class="bi bi-plus-circle"></i> Nuevo Indicador
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center d-none d-lg-block">
+                <i class="bi bi-globe-americas" style="font-size: 10rem; opacity: 0.5;"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sobre el Proyecto -->
+<section class="mb-5">
+    <div class="text-center mb-4">
+        <h2 class="fw-bold"><i class="bi bi-info-circle text-primary"></i> Sobre el Proyecto</h2>
+        <p class="text-muted">DWES + Digitalización + Sostenibilidad</p>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-4">
+                    <p class="lead">
+                        Esta aplicación forma parte del proyecto <strong>"DWES + Digitalización + Sostenibilidad"</strong> 
+                        desarrollado por <strong>EcoData Solutions S.L.</strong>
+                    </p>
+                    <p>
+                        La empresa está llevando a cabo un proceso de digitalización de la información relacionada con 
+                        sus acciones y estrategias de sostenibilidad. Este sistema permite almacenar, consultar y 
+                        analizar datos sobre iniciativas de sostenibilidad y el grado de digitalización de sus procesos.
+                    </p>
+                    <p class="mb-0">
+                        Esta aplicación web es el <strong>cliente Frontend</strong> que consume la API REST desarrollada 
+                        previamente, ofreciendo una interfaz visual para gestionar los indicadores.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Dos Pilares -->
+<section class="mb-5">
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="card h-100 border-success border-2">
+                <div class="card-header bg-success text-white">
+                    <h4 class="mb-0"><i class="bi bi-tree"></i> Sostenibilidad</h4>
+                </div>
+                <div class="card-body">
+                    <p>Métricas que miden el impacto de las operaciones empresariales:</p>
+                    <ul>
+                        <li><strong>Medioambiente:</strong> Emisiones CO2, consumo energético, residuos</li>
+                        <li><strong>Social:</strong> Formación, igualdad, bienestar laboral</li>
+                        <li><strong>Económico:</strong> Inversión sostenible, proveedores locales</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card h-100 border-primary border-2">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0"><i class="bi bi-cpu"></i> Digitalización</h4>
+                </div>
+                <div class="card-body">
+                    <p>Datos sobre la transformación digital de la organización:</p>
+                    <ul>
+                        <li><strong>Procesos:</strong> Automatización, workflows digitales</li>
+                        <li><strong>Servicios:</strong> Plataformas online, atención digital</li>
+                        <li><strong>Infraestructura:</strong> Cloud, ciberseguridad, IoT</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Funcionalidades -->
+<section class="bg-light rounded-3 p-4 mb-5">
+    <div class="text-center mb-4">
+        <h2 class="fw-bold"><i class="bi bi-gear text-secondary"></i> Funcionalidades</h2>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-6 col-lg-3">
+            <div class="card h-100 text-center border-0 shadow-sm">
+                <div class="card-body">
+                    <i class="bi bi-search text-info" style="font-size: 2.5rem;"></i>
+                    <h5 class="mt-3">Consultar</h5>
+                    <p class="small text-muted">Ver todos los indicadores con filtros</p>
+                    <a asp-controller="Indicadores" asp-action="Index" class="btn btn-sm btn-outline-info">
+                        Ir
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-lg-3">
+            <div class="card h-100 text-center border-0 shadow-sm">
+                <div class="card-body">
+                    <i class="bi bi-plus-circle text-success" style="font-size: 2.5rem;"></i>
+                    <h5 class="mt-3">Crear</h5>
+                    <p class="small text-muted">Añadir nuevos indicadores</p>
+                    <a asp-controller="Indicadores" asp-action="Create" class="btn btn-sm btn-outline-success">
+                        Ir
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-lg-3">
+            <div class="card h-100 text-center border-0 shadow-sm">
+                <div class="card-body">
+                    <i class="bi bi-pencil text-warning" style="font-size: 2.5rem;"></i>
+                    <h5 class="mt-3">Editar</h5>
+                    <p class="small text-muted">Modificar indicadores existentes</p>
+                    <a asp-controller="Indicadores" asp-action="Index" class="btn btn-sm btn-outline-warning">
+                        Ir
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-lg-3">
+            <div class="card h-100 text-center border-0 shadow-sm">
+                <div class="card-body">
+                    <i class="bi bi-pie-chart text-primary" style="font-size: 2.5rem;"></i>
+                    <h5 class="mt-3">Analizar</h5>
+                    <p class="small text-muted">Estadísticas y resúmenes</p>
+                    <a asp-controller="Indicadores" asp-action="Resumen" class="btn btn-sm btn-outline-primary">
+                        Ir
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Arquitectura -->
+<section class="mb-5">
+    <div class="text-center mb-4">
+        <h2 class="fw-bold"><i class="bi bi-diagram-3 text-dark"></i> Arquitectura del Sistema</h2>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <div class="row align-items-center text-center">
+                        <!-- Frontend -->
+                        <div class="col-md-4">
+                            <div class="border rounded p-3 bg-light">
+                                <i class="bi bi-window text-info" style="font-size: 2.5rem;"></i>
+                                <h5 class="mt-2 mb-1">Frontend MVC</h5>
+                                <small class="text-muted">ASP.NET Core MVC</small>
+                                <hr>
+                                <small>Vistas Razor + Bootstrap</small>
+                            </div>
+                        </div>
+
+                        <!-- Flecha -->
+                        <div class="col-md-4 py-3">
+                            <i class="bi bi-arrow-left-right text-warning d-none d-md-inline" style="font-size: 2rem;"></i>
+                            <i class="bi bi-arrow-down-up text-warning d-md-none" style="font-size: 2rem;"></i>
+                            <p class="mb-0 mt-2"><strong>HTTP + JSON</strong></p>
+                            <small class="text-muted">HttpClient</small>
+                        </div>
+
+                        <!-- Backend -->
+                        <div class="col-md-4">
+                            <div class="border rounded p-3 bg-light">
+                                <i class="bi bi-server text-success" style="font-size: 2.5rem;"></i>
+                                <h5 class="mt-2 mb-1">API REST</h5>
+                                <small class="text-muted">ASP.NET Core Web API</small>
+                                <hr>
+                                <small>Entity Framework + SQL Server</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ODS -->
+<section class="mb-5">
+    <div class="card bg-success text-white">
+        <div class="card-body p-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h4><i class="bi bi-award"></i> Objetivos de Desarrollo Sostenible</h4>
+                    <p class="mb-0">
+                        Nuestra plataforma contribuye a los ODS de la Agenda 2030, facilitando 
+                        la monitorización de indicadores relacionados con energía, industria e innovación, 
+                        y acción por el clima.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <div class="row text-center mt-3 mt-md-0">
+                        <div class="col-4">
+                            <div class="bg-white bg-opacity-25 rounded p-2">
+                                <strong style="font-size: 1.5rem;">ODS 7</strong>
+                            </div>
+                            <small>Energía</small>
+                        </div>
+                        <div class="col-4">
+                            <div class="bg-white bg-opacity-25 rounded p-2">
+                                <strong style="font-size: 1.5rem;">ODS 9</strong>
+                            </div>
+                            <small>Industria</small>
+                        </div>
+                        <div class="col-4">
+                            <div class="bg-white bg-opacity-25 rounded p-2">
+                                <strong style="font-size: 1.5rem;">ODS 13</strong>
+                            </div>
+                            <small>Clima</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="text-center mb-4">
+    <div class="card bg-primary text-white">
+        <div class="card-body p-4">
+            <h3>¿Listo para empezar?</h3>
+            <p class="mb-3">Accede al panel de indicadores y comienza a gestionar los datos de Digitalización y Sostenibilidad.</p>
+            <a asp-controller="Indicadores" asp-action="Index" class="btn btn-light btn-lg me-2">
+                <i class="bi bi-table"></i> Ver Indicadores
+            </a>
+            <a asp-controller="Indicadores" asp-action="Resumen" class="btn btn-outline-light btn-lg">
+                <i class="bi bi-pie-chart"></i> Ver Resumen
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer Info -->
+<section class="text-center text-muted small">
+    <div class="row">
+        <div class="col-md-4 mb-2">
+            <i class="bi bi-building"></i> <strong>EcoData Solutions S.L.</strong>
+        </div>
+        <div class="col-md-4 mb-2">
+            <i class="bi bi-mortarboard"></i> <strong>Proyecto DWES</strong>
+        </div>
+        <div class="col-md-4 mb-2">
+            <i class="bi bi-code-slash"></i> <strong>.NET 8 + ASP.NET Core</strong>
+        </div>
+    </div>
+</section>

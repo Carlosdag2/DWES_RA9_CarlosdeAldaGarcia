@@ -1,0 +1,130 @@
+@model DWES_RA9_CarlosdeAldaGarcia.Models.IndicadorViewModel
+
+@{
+    ViewData["Title"] = "Detalles del Indicador";
+}
+
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-action="Index">Indicadores</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Detalles #@Model.Id</li>
+        </ol>
+    </nav>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-info text-white">
+                    <h4 class="mb-0">
+                        <i class="bi bi-eye"></i> Detalles del Indicador
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <div class="border-start border-4 border-primary ps-3">
+                                <small class="text-muted">ID</small>
+                                <h5>@Model.Id</h5>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="border-start border-4 border-primary ps-3">
+                                <small class="text-muted">Tipo</small>
+                                <h5>
+                                    @if (Model.Tipo == "Sostenibilidad")
+                                    {
+                                        <span class="badge bg-success">@Model.Tipo</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-primary">@Model.Tipo</span>
+                                    }
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <div class="border-start border-4 border-secondary ps-3">
+                                <small class="text-muted">Categoría</small>
+                                <h5>@Model.Categoria</h5>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="border-start border-4 border-secondary ps-3">
+                                <small class="text-muted">Ámbito</small>
+                                <h5><span class="badge bg-secondary">@Model.Ambito</span></h5>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <div class="border-start border-4 border-info ps-3">
+                            <small class="text-muted">Nombre</small>
+                            <h4>@Model.Nombre</h4>
+                        </div>
+                    </div>
+
+                    @if (!string.IsNullOrEmpty(Model.Descripcion))
+                    {
+                        <div class="mb-4">
+                            <div class="border-start border-4 border-info ps-3">
+                                <small class="text-muted">Descripción</small>
+                                <p class="mb-0">@Model.Descripcion</p>
+                            </div>
+                        </div>
+                    }
+
+                    <div class="row mb-4">
+                        <div class="col-md-4">
+                            <div class="card bg-light">
+                                <div class="card-body text-center">
+                                    <small class="text-muted d-block">Valor</small>
+                                    <h3 class="text-primary mb-0">@Model.Valor</h3>
+                                    @if (!string.IsNullOrEmpty(Model.Unidad))
+                                    {
+                                        <small class="text-muted">@Model.Unidad</small>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card bg-light">
+                                <div class="card-body text-center">
+                                    <small class="text-muted d-block">Unidad</small>
+                                    <h5 class="mb-0">@(Model.Unidad ?? "No especificada")</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card bg-light">
+                                <div class="card-body text-center">
+                                    <small class="text-muted d-block">Fecha</small>
+                                    <h5 class="mb-0">@Model.Fecha.ToString("dd/MM/yyyy")</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr />
+
+                    <div class="d-flex justify-content-between">
+                        <a asp-action="Index" class="btn btn-outline-secondary">
+                            <i class="bi bi-arrow-left"></i> Volver al listado
+                        </a>
+                        <div>
+                            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">
+                                <i class="bi bi-pencil"></i> Editar
+                            </a>
+                            <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">
+                                <i class="bi bi-trash"></i> Eliminar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
