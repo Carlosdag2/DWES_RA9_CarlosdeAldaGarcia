@@ -3,195 +3,216 @@
 }
 
 <!-- Hero Section -->
-<section class="bg-success bg-gradient text-white py-5 rounded-3 mb-5">
+<section class="hero-section text-white py-5 rounded-3 mb-5">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-lg-8">
+            <div class="col-lg-7">
                 <h1 class="display-4 fw-bold mb-3">
-                    <i class="bi bi-leaf"></i> EcoData Solutions S.L.
+                    Sistema de Indicadores<br>de Sostenibilidad
                 </h1>
-                <p class="lead mb-4">
-                    Plataforma de gestión de indicadores de <strong>Digitalización</strong> y 
-                    <strong>Sostenibilidad</strong> para impulsar la toma de decisiones responsables.
+                <p class="lead mb-4" style="opacity: 0.9;">
+                    Plataforma de gestión de indicadores ambientales, sociales y económicos 
+                    desarrollada por EcoData Solutions S.L.
                 </p>
                 <div class="d-flex gap-3 flex-wrap">
-                    <a asp-controller="Indicadores" asp-action="Index" class="btn btn-light btn-lg">
-                        <i class="bi bi-table"></i> Ver Indicadores
+                    <a asp-controller="Indicadores" asp-action="Index" class="btn btn-light btn-lg px-4">
+                        Ver Indicadores
                     </a>
-                    <a asp-controller="Indicadores" asp-action="Create" class="btn btn-outline-light btn-lg">
-                        <i class="bi bi-plus-circle"></i> Nuevo Indicador
+                    <a asp-controller="Indicadores" asp-action="Create" class="btn btn-outline-light btn-lg px-4">
+                        Crear Nuevo
                     </a>
                 </div>
             </div>
-            <div class="col-lg-4 text-center d-none d-lg-block">
-                <i class="bi bi-globe-americas" style="font-size: 10rem; opacity: 0.5;"></i>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Sobre el Proyecto -->
-<section class="mb-5">
-    <div class="text-center mb-4">
-        <h2 class="fw-bold"><i class="bi bi-info-circle text-primary"></i> Sobre el Proyecto</h2>
-        <p class="text-muted">DWES + Digitalización + Sostenibilidad</p>
-    </div>
-
-    <div class="row">
-        <div class="col-lg-8 mx-auto">
-            <div class="card shadow-sm border-0">
-                <div class="card-body p-4">
-                    <p class="lead">
-                        Esta aplicación forma parte del proyecto <strong>"DWES + Digitalización + Sostenibilidad"</strong> 
-                        desarrollado por <strong>EcoData Solutions S.L.</strong>
-                    </p>
-                    <p>
-                        La empresa está llevando a cabo un proceso de digitalización de la información relacionada con 
-                        sus acciones y estrategias de sostenibilidad. Este sistema permite almacenar, consultar y 
-                        analizar datos sobre iniciativas de sostenibilidad y el grado de digitalización de sus procesos.
-                    </p>
-                    <p class="mb-0">
-                        Esta aplicación web es el <strong>cliente Frontend</strong> que consume la API REST desarrollada 
-                        previamente, ofreciendo una interfaz visual para gestionar los indicadores.
-                    </p>
+            <div class="col-lg-5 mt-4 mt-lg-0">
+                <div class="d-flex gap-4 justify-content-center justify-content-lg-end text-white">
+                    <div class="text-center">
+                        <div class="h2 mb-0 fw-bold">100+</div>
+                        <small style="opacity: 0.75;">Indicadores</small>
+                    </div>
+                    <div class="text-center">
+                        <div class="h2 mb-0 fw-bold">5</div>
+                        <small style="opacity: 0.75;">Categorías</small>
+                    </div>
+                    <div class="text-center">
+                        <div class="h2 mb-0 fw-bold">3</div>
+                        <small style="opacity: 0.75;">Ámbitos</small>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Dos Pilares -->
-<section class="mb-5">
-    <div class="row g-4">
-        <div class="col-md-6">
-            <div class="card h-100 border-success border-2">
-                <div class="card-header bg-success text-white">
-                    <h4 class="mb-0"><i class="bi bi-tree"></i> Sostenibilidad</h4>
-                </div>
-                <div class="card-body">
-                    <p>Métricas que miden el impacto de las operaciones empresariales:</p>
-                    <ul>
-                        <li><strong>Medioambiente:</strong> Emisiones CO2, consumo energético, residuos</li>
-                        <li><strong>Social:</strong> Formación, igualdad, bienestar laboral</li>
-                        <li><strong>Económico:</strong> Inversión sostenible, proveedores locales</li>
-                    </ul>
-                </div>
+<!-- Accesos Rápidos -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-4 fw-bold">Acceso Rápido</h2>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <a asp-controller="Indicadores" asp-action="Index" class="text-decoration-none">
+                    <div class="card nav-card nav-card-green h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <i class="bi bi-list-check display-4 mb-3"></i>
+                            <h6 class="mb-1 fw-bold">Ver Indicadores</h6>
+                            <small class="text-muted">Consultar y filtrar</small>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <a asp-controller="Indicadores" asp-action="Create" class="text-decoration-none">
+                    <div class="card nav-card nav-card-blue h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <i class="bi bi-plus-circle display-4 mb-3"></i>
+                            <h6 class="mb-1 fw-bold">Crear Indicador</h6>
+                            <small class="text-muted">Añadir nuevo</small>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <a asp-controller="Indicadores" asp-action="Resumen" class="text-decoration-none">
+                    <div class="card nav-card nav-card-purple h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <i class="bi bi-bar-chart display-4 mb-3"></i>
+                            <h6 class="mb-1 fw-bold">Estadísticas</h6>
+                            <small class="text-muted">Ver métricas</small>
+                        </div>
+                    </div>
+                </a>
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="card h-100 border-primary border-2">
-                <div class="card-header bg-primary text-white">
-                    <h4 class="mb-0"><i class="bi bi-cpu"></i> Digitalización</h4>
+    </div>
+</section>
+
+<!-- Sobre la Empresa -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <h2 class="mb-3 fw-bold">EcoData Solutions S.L.</h2>
+                <p class="text-muted">
+                    Empresa comprometida con la transformación digital sostenible y el 
+                    desarrollo de soluciones tecnológicas responsables con el medio ambiente.
+                </p>
+                <p class="text-muted mb-4">
+                    Este sistema forma parte del proyecto "DWES + Digitalización + Sostenibilidad", 
+                    un servicio REST que centraliza la gestión de indicadores ambientales, sociales y económicos.
+                </p>
+                <div class="row g-3">
+                    <div class="col-6">
+                        <div class="card border-0 shadow-sm p-3">
+                            <i class="bi bi-check-circle text-success me-2"></i>
+                            <span class="small fw-medium">API REST</span>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="card border-0 shadow-sm p-3">
+                            <i class="bi bi-shield-check text-primary me-2"></i>
+                            <span class="small fw-medium">Seguro</span>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="card border-0 shadow-sm p-3">
+                            <i class="bi bi-graph-up text-warning me-2"></i>
+                            <span class="small fw-medium">Análisis</span>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="card border-0 shadow-sm p-3">
+                            <i class="bi bi-globe text-info me-2"></i>
+                            <span class="small fw-medium">Global</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <p>Datos sobre la transformación digital de la organización:</p>
-                    <ul>
-                        <li><strong>Procesos:</strong> Automatización, workflows digitales</li>
-                        <li><strong>Servicios:</strong> Plataformas online, atención digital</li>
-                        <li><strong>Infraestructura:</strong> Cloud, ciberseguridad, IoT</li>
-                    </ul>
+            </div>
+            <div class="col-lg-6">
+                <div class="card shadow-sm border-0">
+                    <img src="https://olut.barcelona/wp-content/uploads/2025/01/oficinas-vic-estudio-dyzaynct-sistema-olut-6615-0336615-068.jpg" 
+                         alt="Oficina EcoData Solutions" class="card-img-top" style="height: 300px; object-fit: cover;">
+                    <div class="card-body">
+                        <h6 class="text-success mb-2">Nuestra Misión</h6>
+                        <p class="text-muted small mb-0">
+                            Proporcionar herramientas digitales que permitan medir y mejorar 
+                            el impacto en la sostenibilidad.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Funcionalidades -->
-<section class="bg-light rounded-3 p-4 mb-5">
-    <div class="text-center mb-4">
-        <h2 class="fw-bold"><i class="bi bi-gear text-secondary"></i> Funcionalidades</h2>
-    </div>
-
-    <div class="row g-4">
-        <div class="col-6 col-lg-3">
-            <div class="card h-100 text-center border-0 shadow-sm">
-                <div class="card-body">
-                    <i class="bi bi-search text-info" style="font-size: 2.5rem;"></i>
-                    <h5 class="mt-3">Consultar</h5>
-                    <p class="small text-muted">Ver todos los indicadores con filtros</p>
-                    <a asp-controller="Indicadores" asp-action="Index" class="btn btn-sm btn-outline-info">
-                        Ir
-                    </a>
+<!-- Los Tres Pilares -->
+<section class="py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <h2 class="mb-3 fw-bold">Los Tres Pilares</h2>
+                <p class="text-muted mb-4">
+                    La sostenibilidad se basa en satisfacer las necesidades del presente 
+                    sin comprometer a las generaciones futuras.
+                </p>
+                
+                <div class="card mb-3 border-success border-start border-4 shadow-sm">
+                    <div class="card-body">
+                        <h6 class="mb-1">
+                            <i class="bi bi-tree text-success me-2"></i>Ambiental
+                        </h6>
+                        <p class="mb-0 text-muted small">
+                            Protección del medio ambiente y gestión de recursos.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="card mb-3 border-primary border-start border-4 shadow-sm">
+                    <div class="card-body">
+                        <h6 class="mb-1">
+                            <i class="bi bi-people text-primary me-2"></i>Social
+                        </h6>
+                        <p class="mb-0 text-muted small">
+                            Bienestar, igualdad y desarrollo comunitario.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="card border-warning border-start border-4 shadow-sm">
+                    <div class="card-body">
+                        <h6 class="mb-1">
+                            <i class="bi bi-currency-euro text-warning me-2"></i>Económico
+                        </h6>
+                        <p class="mb-0 text-muted small">
+                            Crecimiento responsable y eficiencia.
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-6 col-lg-3">
-            <div class="card h-100 text-center border-0 shadow-sm">
-                <div class="card-body">
-                    <i class="bi bi-plus-circle text-success" style="font-size: 2.5rem;"></i>
-                    <h5 class="mt-3">Crear</h5>
-                    <p class="small text-muted">Añadir nuevos indicadores</p>
-                    <a asp-controller="Indicadores" asp-action="Create" class="btn btn-sm btn-outline-success">
-                        Ir
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-6 col-lg-3">
-            <div class="card h-100 text-center border-0 shadow-sm">
-                <div class="card-body">
-                    <i class="bi bi-pencil text-warning" style="font-size: 2.5rem;"></i>
-                    <h5 class="mt-3">Editar</h5>
-                    <p class="small text-muted">Modificar indicadores existentes</p>
-                    <a asp-controller="Indicadores" asp-action="Index" class="btn btn-sm btn-outline-warning">
-                        Ir
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-6 col-lg-3">
-            <div class="card h-100 text-center border-0 shadow-sm">
-                <div class="card-body">
-                    <i class="bi bi-pie-chart text-primary" style="font-size: 2.5rem;"></i>
-                    <h5 class="mt-3">Analizar</h5>
-                    <p class="small text-muted">Estadísticas y resúmenes</p>
-                    <a asp-controller="Indicadores" asp-action="Resumen" class="btn btn-sm btn-outline-primary">
-                        Ir
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Arquitectura -->
-<section class="mb-5">
-    <div class="text-center mb-4">
-        <h2 class="fw-bold"><i class="bi bi-diagram-3 text-dark"></i> Arquitectura del Sistema</h2>
-    </div>
-
-    <div class="row justify-content-center">
-        <div class="col-lg-10">
-            <div class="card shadow-sm">
-                <div class="card-body">
-                    <div class="row align-items-center text-center">
-                        <!-- Frontend -->
-                        <div class="col-md-4">
-                            <div class="border rounded p-3 bg-light">
-                                <i class="bi bi-window text-info" style="font-size: 2.5rem;"></i>
-                                <h5 class="mt-2 mb-1">Frontend MVC</h5>
-                                <small class="text-muted">ASP.NET Core MVC</small>
-                                <hr>
-                                <small>Vistas Razor + Bootstrap</small>
+            <div class="col-lg-6">
+                <div class="row g-3">
+                    <div class="col-6">
+                        <div class="card text-center bg-success text-white border-0 shadow">
+                            <div class="card-body">
+                                <i class="bi bi-tree display-4"></i>
+                                <h5 class="mt-2">Ambiental</h5>
+                                <p class="small mb-0">CO2, Energía, Residuos</p>
                             </div>
                         </div>
-
-                        <!-- Flecha -->
-                        <div class="col-md-4 py-3">
-                            <i class="bi bi-arrow-left-right text-warning d-none d-md-inline" style="font-size: 2rem;"></i>
-                            <i class="bi bi-arrow-down-up text-warning d-md-none" style="font-size: 2rem;"></i>
-                            <p class="mb-0 mt-2"><strong>HTTP + JSON</strong></p>
-                            <small class="text-muted">HttpClient</small>
+                    </div>
+                    <div class="col-6">
+                        <div class="card text-center bg-primary text-white border-0 shadow">
+                            <div class="card-body">
+                                <i class="bi bi-people display-4"></i>
+                                <h5 class="mt-2">Social</h5>
+                                <p class="small mb-0">Formación, Igualdad</p>
+                            </div>
                         </div>
-
-                        <!-- Backend -->
-                        <div class="col-md-4">
-                            <div class="border rounded p-3 bg-light">
-                                <i class="bi bi-server text-success" style="font-size: 2.5rem;"></i>
-                                <h5 class="mt-2 mb-1">API REST</h5>
-                                <small class="text-muted">ASP.NET Core Web API</small>
-                                <hr>
-                                <small>Entity Framework + SQL Server</small>
+                    </div>
+                    <div class="col-12">
+                        <div class="card text-center bg-warning border-0 shadow">
+                            <div class="card-body">
+                                <i class="bi bi-graph-up display-4 text-white"></i>
+                                <h5 class="mt-2 text-white">Económico</h5>
+                                <p class="small mb-0 text-white">Inversión, Proveedores</p>
                             </div>
                         </div>
                     </div>
@@ -201,73 +222,205 @@
     </div>
 </section>
 
-<!-- ODS -->
-<section class="mb-5">
-    <div class="card bg-success text-white">
-        <div class="card-body p-4">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <h4><i class="bi bi-award"></i> Objetivos de Desarrollo Sostenible</h4>
-                    <p class="mb-0">
-                        Nuestra plataforma contribuye a los ODS de la Agenda 2030, facilitando 
-                        la monitorización de indicadores relacionados con energía, industria e innovación, 
-                        y acción por el clima.
-                    </p>
-                </div>
-                <div class="col-md-6">
-                    <div class="row text-center mt-3 mt-md-0">
-                        <div class="col-4">
-                            <div class="bg-white bg-opacity-25 rounded p-2">
-                                <strong style="font-size: 1.5rem;">ODS 7</strong>
-                            </div>
-                            <small>Energía</small>
-                        </div>
-                        <div class="col-4">
-                            <div class="bg-white bg-opacity-25 rounded p-2">
-                                <strong style="font-size: 1.5rem;">ODS 9</strong>
-                            </div>
-                            <small>Industria</small>
-                        </div>
-                        <div class="col-4">
-                            <div class="bg-white bg-opacity-25 rounded p-2">
-                                <strong style="font-size: 1.5rem;">ODS 13</strong>
-                            </div>
-                            <small>Clima</small>
-                        </div>
+<!-- Digitalización -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-4 fw-bold">Digitalización</h2>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 text-center p-4 border-0 shadow-sm">
+                    <div class="mx-auto mb-3 d-flex align-items-center justify-content-center bg-success bg-opacity-10 rounded-circle" style="width: 80px; height: 80px;">
+                        <i class="bi bi-speedometer2 text-success" style="font-size: 2rem;"></i>
                     </div>
+                    <h6 class="mb-1 fw-bold">Monitorización</h6>
+                    <p class="text-muted small mb-0">Seguimiento en tiempo real</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 text-center p-4 border-0 shadow-sm">
+                    <div class="mx-auto mb-3 d-flex align-items-center justify-content-center bg-primary bg-opacity-10 rounded-circle" style="width: 80px; height: 80px;">
+                        <i class="bi bi-clipboard-data text-primary" style="font-size: 2rem;"></i>
+                    </div>
+                    <h6 class="mb-1 fw-bold">Análisis</h6>
+                    <p class="text-muted small mb-0">Identificar tendencias</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 text-center p-4 border-0 shadow-sm">
+                    <div class="mx-auto mb-3 d-flex align-items-center justify-content-center bg-warning bg-opacity-10 rounded-circle" style="width: 80px; height: 80px;">
+                        <i class="bi bi-arrow-repeat text-warning" style="font-size: 2rem;"></i>
+                    </div>
+                    <h6 class="mb-1 fw-bold">Automatización</h6>
+                    <p class="text-muted small mb-0">Optimización de procesos</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 text-center p-4 border-0 shadow-sm">
+                    <div class="mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 80px; height: 80px; background-color: rgba(139, 92, 246, 0.1); border-radius: 50%;">
+                        <i class="bi bi-lightbulb" style="font-size: 2rem; color: #8b5cf6;"></i>
+                    </div>
+                    <h6 class="mb-1 fw-bold">Innovación</h6>
+                    <p class="text-muted small mb-0">Soluciones tecnológicas</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Call to Action -->
-<section class="text-center mb-4">
-    <div class="card bg-primary text-white">
-        <div class="card-body p-4">
-            <h3>¿Listo para empezar?</h3>
-            <p class="mb-3">Accede al panel de indicadores y comienza a gestionar los datos de Digitalización y Sostenibilidad.</p>
-            <a asp-controller="Indicadores" asp-action="Index" class="btn btn-light btn-lg me-2">
-                <i class="bi bi-table"></i> Ver Indicadores
-            </a>
-            <a asp-controller="Indicadores" asp-action="Resumen" class="btn btn-outline-light btn-lg">
-                <i class="bi bi-pie-chart"></i> Ver Resumen
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- Footer Info -->
-<section class="text-center text-muted small">
-    <div class="row">
-        <div class="col-md-4 mb-2">
-            <i class="bi bi-building"></i> <strong>EcoData Solutions S.L.</strong>
-        </div>
-        <div class="col-md-4 mb-2">
-            <i class="bi bi-mortarboard"></i> <strong>Proyecto DWES</strong>
-        </div>
-        <div class="col-md-4 mb-2">
-            <i class="bi bi-code-slash"></i> <strong>.NET 8 + ASP.NET Core</strong>
+<!-- ODS Section -->
+<section class="py-5 bg-success bg-gradient text-white">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-5 mb-4 mb-lg-0">
+                <h2 class="mb-3 fw-bold">Objetivos de Desarrollo Sostenible</h2>
+                <p class="mb-4" style="opacity: 0.9;">
+                    Los 17 ODS de la ONU son un llamamiento universal para proteger el planeta 
+                    y mejorar las vidas de todas las personas.
+                </p>
+                <a href="https://www.un.org/sustainabledevelopment/es/" target="_blank" class="btn btn-light">
+                    <i class="bi bi-box-arrow-up-right me-2"></i>Más información
+                </a>
+            </div>
+            <div class="col-lg-7">
+                <div class="row g-3">
+                    <div class="col-4 col-md-2">
+                        <div class="card text-center border-0 text-white" style="background-color: #e5243b;">
+                            <div class="card-body p-2">
+                                <div class="fw-bold">1</div>
+                                <small style="font-size: 0.7rem;">Pobreza</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <div class="card text-center border-0 text-white" style="background-color: #dda63a;">
+                            <div class="card-body p-2">
+                                <div class="fw-bold">2</div>
+                                <small style="font-size: 0.7rem;">Hambre</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <div class="card text-center border-0 text-white" style="background-color: #4c9f38;">
+                            <div class="card-body p-2">
+                                <div class="fw-bold">3</div>
+                                <small style="font-size: 0.7rem;">Salud</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <div class="card text-center border-0 text-white" style="background-color: #c5192d;">
+                            <div class="card-body p-2">
+                                <div class="fw-bold">4</div>
+                                <small style="font-size: 0.7rem;">Educación</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <div class="card text-center border-0 text-white" style="background-color: #ff3a21;">
+                            <div class="card-body p-2">
+                                <div class="fw-bold">5</div>
+                                <small style="font-size: 0.7rem;">Igualdad</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <div class="card text-center border-0 text-white" style="background-color: #26bde2;">
+                            <div class="card-body p-2">
+                                <div class="fw-bold">6</div>
+                                <small style="font-size: 0.7rem;">Agua</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <div class="card text-center border-0 text-white" style="background-color: #fcc30b;">
+                            <div class="card-body p-2">
+                                <div class="fw-bold">7</div>
+                                <small style="font-size: 0.7rem;">Energía</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <div class="card text-center border-0 text-white" style="background-color: #a21942;">
+                            <div class="card-body p-2">
+                                <div class="fw-bold">8</div>
+                                <small style="font-size: 0.7rem;">Trabajo</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <div class="card text-center border-0 text-white" style="background-color: #fd6925;">
+                            <div class="card-body p-2">
+                                <div class="fw-bold">9</div>
+                                <small style="font-size: 0.7rem;">Industria</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <div class="card text-center border-0 text-white" style="background-color: #dd1367;">
+                            <div class="card-body p-2">
+                                <div class="fw-bold">10</div>
+                                <small style="font-size: 0.7rem;">Desigualdad</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <div class="card text-center border-0 text-white" style="background-color: #fd9d24;">
+                            <div class="card-body p-2">
+                                <div class="fw-bold">11</div>
+                                <small style="font-size: 0.7rem;">Ciudades</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <div class="card text-center border-0 text-white" style="background-color: #bf8b2e;">
+                            <div class="card-body p-2">
+                                <div class="fw-bold">12</div>
+                                <small style="font-size: 0.7rem;">Consumo</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <div class="card text-center border-0 text-white" style="background-color: #3f7e44;">
+                            <div class="card-body p-2">
+                                <div class="fw-bold">13</div>
+                                <small style="font-size: 0.7rem;">Clima</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <div class="card text-center border-0 text-white" style="background-color: #0a97d9;">
+                            <div class="card-body p-2">
+                                <div class="fw-bold">14</div>
+                                <small style="font-size: 0.7rem;">Océanos</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <div class="card text-center border-0 text-white" style="background-color: #56c02b;">
+                            <div class="card-body p-2">
+                                <div class="fw-bold">15</div>
+                                <small style="font-size: 0.7rem;">Ecosistemas</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <div class="card text-center border-0 text-white" style="background-color: #00689d;">
+                            <div class="card-body p-2">
+                                <div class="fw-bold">16</div>
+                                <small style="font-size: 0.7rem;">Paz</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <div class="card text-center border-0 text-white" style="background-color: #19486a;">
+                            <div class="card-body p-2">
+                                <div class="fw-bold">17</div>
+                                <small style="font-size: 0.7rem;">Alianzas</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
